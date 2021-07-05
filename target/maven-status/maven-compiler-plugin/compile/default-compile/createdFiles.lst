@@ -1,0 +1,5 @@
+fr\deums\aurium\test\Commands\HomeCommand.class
+fr\deums\aurium\test\Main.class
+fr\deums\aurium\test\Commands\SethomeCommand.class
+fr\deums\aurium\test\Listener\PlayerListener.class
+fr\deums\aurium\test\Managers\HomeManager.class

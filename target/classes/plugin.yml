@@ -1,0 +1,13 @@
+name: Test
+version: 1.0-SNAPSHOT
+main: fr.deums.aurium.test.Main
+api-version: 1.17
+authors: [ deums ]
+description: Plugin de test
+commands:
+  home:
+    description: Se téléporter à un home
+    usage: /<command> home
+  sethome:
+    description: Poser un home
+    usage: /<command>
