@@ -23,6 +23,7 @@ public class HomeCommand implements CommandExecutor {
                 for(String home : HomeManager.getHomeList(player).keySet()){
                     msg += (home+" ");
                 }
+                player.sendMessage(msg);
             }
         }
         return true;

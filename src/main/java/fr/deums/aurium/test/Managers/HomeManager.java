@@ -13,10 +13,10 @@ public class HomeManager {
         return database;
     }
     public static void addHome(Player p,String name ,Location loc){
-        getDatabase().get(p).put(name,loc);
+        getDatabase().get(p.getUniqueId()).put(name,loc);
     }
     public static HashMap<String,Location> getHomeList(Player p){
-        return getDatabase().get(p);
+        return getDatabase().get(p.getUniqueId());
     }
     public static boolean containsPlayer(Player p){
         return getDatabase().containsKey(p.getUniqueId());
