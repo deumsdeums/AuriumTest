@@ -25,15 +25,15 @@ public class HomeCommand implements CommandExecutor {
                     Location homeLoc = HomeManager.getHomeList(player).get(name);
                     if(player.hasPermission("fr.deums.aurium.test.home.bypass"))
                         player.teleport(homeLoc);
-                    else
-                        new BukkitRunnable(){
+                    else {
+                        player.sendMessage("Téléportation dans 5 secondes");
+                        new BukkitRunnable() {
                             @Override
                             public void run() {
                                 player.teleport(homeLoc);
                             }
-                        }.runTaskLater(pluginInstance,100);
-                        player.sendMessage("Téléportation dans 5 secondes");
-
+                        }.runTaskLater(pluginInstance, 100);
+                    }
                 }
             }
             else{

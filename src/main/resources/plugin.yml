@@ -14,3 +14,7 @@ commands:
   delhome:
     description : Supprimer un home
     usage : /<command> home
+permissions:
+  fr.deums.aurium.test.home.bypass:
+    description: allow home bypass timer
+    default: op;
