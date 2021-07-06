@@ -10,4 +10,7 @@ commands:
     usage: /<command> home
   sethome:
     description: Poser un home
-    usage: /<command>
+    usage: /<command> home
+  delhome:
+    description : Supprimer un home
+    usage : /<command> home

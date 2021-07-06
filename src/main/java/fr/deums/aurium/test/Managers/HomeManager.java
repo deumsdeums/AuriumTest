@@ -24,5 +24,16 @@ public class HomeManager {
     public static void initPlayer(Player p){
         database.put(p.getUniqueId(),new HashMap<String,Location>());
     }
+    public static boolean homeExist(Player p, String home){
+        if (getHomeList(p).containsKey(home))
+            return true;
+        else
+            p.sendMessage("Cet home n'existe pas");
+        return false;
 
+    }
+    public static void deleteHome(Player p, String home){
+        if(homeExist(p,home))
+            getHomeList(p).remove(home);
+    }
 }
