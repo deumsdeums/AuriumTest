@@ -1,5 +1,7 @@
 package fr.deums.aurium.test.Managers;
 
+import fr.execaution.exccodeapi.config.MessageConfig;
+
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -28,7 +30,7 @@ public class HomeManager {
         if (getHomeList(p).containsKey(home))
             return true;
         else {
-            p.sendMessage("Cet home n'existe pas");
+            p.sendMessage(MessageConfig.format("Cet home n'existe pas"));
             return false;
         }
 

@@ -3,6 +3,7 @@ package fr.deums.aurium.test.Commands;
 import fr.deums.aurium.test.Main;
 import fr.deums.aurium.test.Managers.HomeManager;
 import fr.deums.aurium.test.config.HomeConfig;
+import fr.execaution.exccodeapi.config.MessageConfig;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,7 +32,7 @@ public class HomeCommand implements CommandExecutor {
                     if(player.hasPermission("fr.deums.aurium.test.home.bypass"))
                         player.teleport(homeLoc);
                     else {
-                        player.sendMessage("Téléportation dans "+timer+" secondes");
+                        player.sendMessage(MessageConfig.format("Téléportation dans "+timer+" secondes"));
                         new BukkitRunnable() {
                             @Override
                             public void run() {
@@ -42,11 +43,16 @@ public class HomeCommand implements CommandExecutor {
                 }
             }
             else{
-                String msg = "Home disponible : ";
-                for(String home : HomeManager.getHomeList(player).keySet()){
-                    msg += (home+" ");
+                if(HomeManager.getHomeList(player).size()>0) {
+                    String msg = "Home disponible : ";
+                    for (String home : HomeManager.getHomeList(player).keySet()) {
+                        msg += (home + " ");
+                    }
+                    player.sendMessage(MessageConfig.format(msg));
                 }
-                player.sendMessage(msg);
+                else{
+                    player.sendMessage(MessageConfig.format("Vous n'avez aucun home disponible"));
+                }
             }
         }
         return true;

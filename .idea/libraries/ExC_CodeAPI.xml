@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ExC-CodeAPI">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Minecraft/1.17/plugins/ExC-CodeAPI.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,6 +1,7 @@
 package fr.deums.aurium.test.Commands;
 
 import fr.deums.aurium.test.Managers.HomeManager;
+import fr.execaution.exccodeapi.config.MessageConfig;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +17,7 @@ public class SethomeCommand implements CommandExecutor {
                 String name = args[0];
                 Location loc = player.getLocation();
                 HomeManager.addHome(player, name, loc);
-                player.sendMessage("Home défini");
+                player.sendMessage(MessageConfig.format("Home défini"));
             }
             else
                 return false;

@@ -1,6 +1,7 @@
 package fr.deums.aurium.test.Commands;
 
 import fr.deums.aurium.test.Managers.HomeManager;
+import fr.execaution.exccodeapi.config.MessageConfig;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,7 +14,7 @@ public class DelhomeCommand implements CommandExecutor {
             Player player = (Player)sender;
             if(args.length==1){
                 HomeManager.deleteHome(player,args[0]);
-                player.sendMessage("Home supprimé");
+                player.sendMessage(MessageConfig.format("Home supprimé"));
             }
             else
                 return false;
