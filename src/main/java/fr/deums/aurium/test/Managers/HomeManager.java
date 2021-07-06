@@ -11,7 +11,7 @@ import java.util.UUID;
 
 public class HomeManager {
     private static HashMap<UUID,HashMap<String,Location>> database= new HashMap<UUID,HashMap<String,Location>>();
-    private static HashMap<UUID,HashMap<String,Location>> getDatabase(){
+    public static HashMap<UUID,HashMap<String,Location>> getDatabase(){
         return database;
     }
     public static void addHome(Player p,String name ,Location loc){
