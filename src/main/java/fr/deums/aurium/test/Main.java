@@ -1,5 +1,6 @@
 package fr.deums.aurium.test;
 
+import fr.deums.aurium.test.Commands.DelhomeCommand;
 import fr.deums.aurium.test.Commands.HomeCommand;
 import fr.deums.aurium.test.Commands.SethomeCommand;
 import fr.deums.aurium.test.Listener.PlayerListener;
@@ -11,7 +12,8 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         this.getCommand("sethome").setExecutor(new SethomeCommand());
-        this.getCommand("home").setExecutor(new HomeCommand());
+        this.getCommand("home").setExecutor(new HomeCommand(this));
+        this.getCommand("delhome").setExecutor(new DelhomeCommand());
         getServer().getPluginManager().registerEvents(new PlayerListener(),this);
     }
 

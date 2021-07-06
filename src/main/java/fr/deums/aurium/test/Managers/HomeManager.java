@@ -27,9 +27,10 @@ public class HomeManager {
     public static boolean homeExist(Player p, String home){
         if (getHomeList(p).containsKey(home))
             return true;
-        else
+        else {
             p.sendMessage("Cet home n'existe pas");
-        return false;
+            return false;
+        }
 
     }
     public static void deleteHome(Player p, String home){

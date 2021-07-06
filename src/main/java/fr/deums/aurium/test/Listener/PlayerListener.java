@@ -10,7 +10,6 @@ public class PlayerListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event){
         if(!HomeManager.containsPlayer(event.getPlayer())){
             HomeManager.initPlayer(event.getPlayer());
-
         }
     }
 }

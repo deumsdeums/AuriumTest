@@ -13,6 +13,7 @@ public class DelhomeCommand implements CommandExecutor {
             Player player = (Player)sender;
             if(args.length==1){
                 HomeManager.deleteHome(player,args[0]);
+                player.sendMessage("Home supprimé");
             }
             else
                 return false;
