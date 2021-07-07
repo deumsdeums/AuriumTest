@@ -13,7 +13,6 @@ import java.util.UUID;
 
 public class HomeConfig extends ConfigBase {
     static HomeConfig Instance;
-    public HashMap<String,Location> homes = new HashMap<>();
     public HomeConfig(JavaPlugin pl) {
         super(pl, "home_config.yml");
         Instance = this;
@@ -29,16 +28,17 @@ public class HomeConfig extends ConfigBase {
     public static void loadHomes(){
         ConfigurationSection section = Instance.config.getConfigurationSection("Database");
         for(String key : section.getKeys(false)){ // Itération sur chaque joueur
+            HashMap<String,Location> homes = new HashMap<>();
             ConfigurationSection player = Instance.config.getConfigurationSection("Database."+key);
             for (String home : player.getKeys(false)){
                 String world = player.getString(home+"."+"world");
                 double x = player.getDouble(home+"."+"x");
                 double y = player.getDouble(home+"."+"y");
                 double z = player.getDouble(home+"."+"z");
-                Instance.homes.put(home,new Location(Bukkit.getWorld(world),x,y,z));
+                homes.put(home,new Location(Bukkit.getWorld(world),x,y,z));
             }
-            HomeManager.database.put(UUID.fromString(key),Instance.homes);
-            Instance.homes.clear();
+            HomeManager.database.put(UUID.fromString(key),homes);
+            homes.clear();
         }
 
     }
