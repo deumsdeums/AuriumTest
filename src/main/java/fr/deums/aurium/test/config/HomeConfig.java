@@ -27,7 +27,10 @@ public class HomeConfig extends ConfigBase {
     public static void loadHomes(){
         ConfigurationSection section = Instance.config.getConfigurationSection("Database");
         for(String key : section.getKeys(false)){ // Itération sur chaque joueur
-            
+            MemorySection player = (MemorySection) section.get(key);
+            for(String loc : player.getKeys(false)){
+                System.out.println("OUT -> "+Instance.config.getString(key+"."+loc+".world"));
+            }
 
         }
 
