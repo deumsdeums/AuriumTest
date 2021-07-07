@@ -2,6 +2,7 @@ package fr.deums.aurium.test.config;
 
 import fr.deums.aurium.test.Managers.HomeManager;
 import fr.execaution.config.ConfigBase;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.MemorySection;
@@ -12,6 +13,7 @@ import java.util.UUID;
 
 public class HomeConfig extends ConfigBase {
     static HomeConfig Instance;
+    public HashMap<String,Location> homes = new HashMap<>();
     public HomeConfig(JavaPlugin pl) {
         super(pl, "home_config.yml");
         Instance = this;
@@ -27,11 +29,16 @@ public class HomeConfig extends ConfigBase {
     public static void loadHomes(){
         ConfigurationSection section = Instance.config.getConfigurationSection("Database");
         for(String key : section.getKeys(false)){ // Itération sur chaque joueur
-            MemorySection player = (MemorySection) section.get(key);
-            for(String loc : player.getKeys(false)){
-                System.out.println("OUT -> "+Instance.config.getString(key+"."+loc+".world"));
+            ConfigurationSection player = Instance.config.getConfigurationSection("Database."+key);
+            for (String home : player.getKeys(false)){
+                String world = player.getString(home+"."+"world");
+                double x = player.getDouble(home+"."+"x");
+                double y = player.getDouble(home+"."+"y");
+                double z = player.getDouble(home+"."+"z");
+                Instance.homes.put(home,new Location(Bukkit.getWorld(world),x,y,z));
             }
-
+            HomeManager.database.put(UUID.fromString(key),Instance.homes);
+            Instance.homes.clear();
         }
 
     }

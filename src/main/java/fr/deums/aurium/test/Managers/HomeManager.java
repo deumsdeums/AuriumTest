@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class HomeManager {
-    private static HashMap<UUID,HashMap<String,Location>> database= new HashMap<UUID,HashMap<String,Location>>();
+    public static HashMap<UUID,HashMap<String,Location>> database= new HashMap<UUID,HashMap<String,Location>>();
     public static HashMap<UUID,HashMap<String,Location>> getDatabase(){
         return database;
     }
