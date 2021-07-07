@@ -4,6 +4,7 @@ import fr.deums.aurium.test.Managers.HomeManager;
 import fr.execaution.config.ConfigBase;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.MemorySection;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
@@ -14,6 +15,7 @@ public class HomeConfig extends ConfigBase {
     public HomeConfig(JavaPlugin pl) {
         super(pl, "home_config.yml");
         Instance = this;
+        loadHomes();
     }
 
     @Override
@@ -23,6 +25,11 @@ public class HomeConfig extends ConfigBase {
         config.createSection("Database");
     }
     public static void loadHomes(){
+        ConfigurationSection section = Instance.config.getConfigurationSection("Database");
+        for(String key : section.getKeys(false)){ // Itération sur chaque joueur
+            
+
+        }
 
     }
     public static void saveHomes(){
